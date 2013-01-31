@@ -5,24 +5,32 @@ Getting started
 ---------------
 First you must initialize a repository with our sources:
 
-    repo init -u git://github.com/Utacka/android.git -b jellybean
+    repo init -u git://github.com/garwedgess/android.git -b jellybean
 
 Then sync it up (This will take a while, so get a cup of coffee and some snickers):
 
     repo sync
 
+       or
+
+    repo sync -j#
+
 
 Building ParanoidAndroid
 ------------------------
 
-For building ParanoidAndroid you must cd to the working directory.
-Make sure you have your device tree sources, located on
+1/ For building ParanoidAndroid you must cd to the working directory.
 
-    cd device/-manufacturer-/-device-
 
-Now you can run our build script:
+2/ Now you can run our build script:
 
     ./rom-build.sh -device-
+
+
+[Note] - So long as device dependencies are placed in /vendor/pa/
+         dependencies
+         device trees will sync automatically. No need to add them to
+         local.manifest manually.
 
 
 You can also use a second parameter for syncing sources before building
@@ -31,7 +39,7 @@ You can also use a second parameter for syncing sources before building
 
 There are also a few parameters that you can use together with before mentioned:
 
-* threads: Allows to choose a number of threads for syncing operation
+* threads #: Allows to choose a number of threads for syncing operation (-j#)
 * clean: Removes intermediates and output files
 
 The usage is the same

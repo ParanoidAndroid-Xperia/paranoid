@@ -45,8 +45,10 @@ clear
 
 echo -e "${cya}Building ${bldcya}ParanoidAndroid v$VERSION ${txtrst}";
 
-echo -e "${cya}"
-./vendor/pa/tools/getdevicetree.py $DEVICE
+# get PA device dependencies
+echo -e ""
+echo -e "${bldblu}Looking for PA product dependencies ${txtrst}${cya}"
+./vendor/pa/tools/getdependencies.py $DEVICE
 echo -e "${txtrst}"
 
 # decide what command to execute
